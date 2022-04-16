@@ -56,7 +56,7 @@ class on_off_AWAC_Q_lambda_Haru_obs:
         
         self.Entropy = Entropy
         self.target_entropy = -torch.FloatTensor([action_dim]).to(device)
-        self.log_alpha = torch.zeros(1, requires_grad=True, device="cuda")
+        self.log_alpha = torch.zeros(1, requires_grad=True, device=device)
         self.alpha_optim = torch.optim.Adam([self.log_alpha], lr = l_rate_alpha) 
         self.alpha = alpha
         
