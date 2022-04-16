@@ -1,0 +1,19 @@
+#!/bin/bash -l
+
+#$ -l h_rt=172:00:00
+
+#$ -m e
+
+#$ -j y
+
+#$ -N on_off_RL_from_observations_ri_0.005_AWAC_Q_lambda_Haru
+
+#$ -V
+
+#$ -pe omp 4
+#$ -l mem_per_core=4G
+
+module load miniconda
+
+conda activate /project/onr/vgiammar/RL_env
+python main.py --mode on_off_RL_from_observations --policy AWAC_Q_lambda_Haru --intrinsic_reward 0.005 --seed $1 --human $2
